@@ -10,6 +10,8 @@ namespace BackpackLogger
 	{
 		static void Main(string[] args)
 		{
+			colors["_back"] = Color.FromArgb(12, 12, 12);
+			Console.Clear();
 			DefineColors();
 			Console.ForegroundColor = colors["_default"];
 			Console.Title = "Backpack Logger";
@@ -18,6 +20,19 @@ namespace BackpackLogger
 			Console.Write("backpack", Color.White);
 			Console.Write(".tf", Color.CornflowerBlue);
 			Console.WriteLine();
+			for (int i = 0; i < colors.Count(); i++)
+			{
+				if (i > 0)
+					Console.Write(", ");
+				Console.Write(colors.ElementAt(i).Key, colors.ElementAt(i).Value);
+			}
+			Console.WriteLine();
+			new ConsoleMenu("Menu test", Color.White, new MenuOption[]
+			{
+				new MenuOption("Self-Made Dalokohs Bar", "Item description test 1", colors["community"], 0),
+				new MenuOption("Valve Rocket Launcher", "Item description test 2", colors["valve"], 0),
+				new MenuOption("Collector's Eyelander", "Item description test 3", colors["collector"], 0),
+			}).DisplayMenu();
 			Console.ReadLine();
 		}
 
@@ -44,6 +59,6 @@ namespace BackpackLogger
 		/// 
 		///	community & self-made use the same color
 		/// </summary>
-		static Dictionary<string, Color> colors = new Dictionary<string, Color>();
+		static internal Dictionary<string, Color> colors = new Dictionary<string, Color>();
 	}
 }
