@@ -9,7 +9,7 @@ namespace BackpackLogger
 {
 	public class MenuOption
 	{
-		public MenuOption(string name, string description, Color color, int value)
+		public MenuOption(string name, string description, Color color, object value)
 		{
 			this.name = name;
 			this.description = description;
@@ -20,6 +20,6 @@ namespace BackpackLogger
 		public string name;
 		public string description;
 		public Color color;
-		public int value;
+		public object value;
 	}
 }

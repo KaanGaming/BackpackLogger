@@ -39,7 +39,7 @@ namespace BackpackLogger
 			return new string(chars);
 		}
 
-		public int DisplayMenu()
+		public object DisplayMenu()
 		{
 			Console.BackgroundColor = Program.colors["_back"];
 			int ypos = Console.CursorTop;
@@ -111,7 +111,8 @@ namespace BackpackLogger
 			}
 
 			Console.CursorLeft = 0;
-			Console.CursorTop = ypos + 1;
+			Console.CursorTop = ypos;
+			Console.WriteLine(Whitespace(Console.BufferWidth));
 			return option;
 		}
 	}
