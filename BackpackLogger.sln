@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackpackLogger", "BackpackLogger\BackpackLogger.csproj", "{13E32250-EC62-4849-9BCC-599F653E1D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackpackLogger", "BackpackLogger\BackpackLogger.csproj", "{13E32250-EC62-4849-9BCC-599F653E1D5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93315738-A845-46AD-8949-6BC24315E5D2}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
