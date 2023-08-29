@@ -1,5 +1,6 @@
 ﻿using Colorful;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using Console = Colorful.Console;
@@ -20,20 +21,32 @@ namespace BackpackLogger
 			Console.Write("backpack", Color.White);
 			Console.Write(".tf", Color.CornflowerBlue);
 			Console.WriteLine();
-			for (int i = 0; i < colors.Count(); i++)
-			{
-				if (i > 0)
-					Console.Write(", ");
-				Console.Write(colors.ElementAt(i).Key, colors.ElementAt(i).Value);
-			}
 			Console.WriteLine();
-			new ConsoleMenu("Menu test", Color.White, new MenuOption[]
+			bool loop = true;
+			while (loop)
 			{
-				new MenuOption("Self-Made Dalokohs Bar", "Item description test 1", colors["community"], 0),
-				new MenuOption("Valve Rocket Launcher", "Item description test 2", colors["valve"], 0),
-				new MenuOption("Collector's Eyelander", "Item description test 3", colors["collector"], 0),
-			}).DisplayMenu();
-			Console.ReadLine();
+				int choice = (int)new ConsoleMenu("Choose an action", colors["_default"], new MenuOption[]
+				{
+					new MenuOption("Follow item", "Search for an item to add to the quickview list", Color.Goldenrod, 0),
+					new MenuOption("Unfollow item", "Search for an item to add to the quickview list", Color.OrangeRed, 1),
+					new MenuOption("Open backpack.tf", "Visit the website for trading goods in Team Fortress 2!", Color.CornflowerBlue, 2),
+					new MenuOption("Exit program", "Exit the program.", colors["_default"], 3),
+				}).DisplayMenu();
+
+				if (choice == 3)
+					loop = false;
+
+				if (choice == 2)
+					OpenBackpackTf();
+			}
+		}
+
+		static void OpenBackpackTf()
+		{
+			Process.Start(new ProcessStartInfo("https://backpack.tf")
+			{
+				UseShellExecute = true
+			});
 		}
 
 		static void DefineColors()
